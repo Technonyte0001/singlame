@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Buttons</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .game-list {
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .game-button {
+            width: 100%;
+            height: 50px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            margin: 0px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: white;
+            box-sizing: border-box;
+            transition: 0.2s ease;
+        }
+
+        .game-button:hover {
+            background-color: #333;
+            font-size: 20pt;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="game-list"></div>
+
+    <script>
+        // Define the game dictionary
+        var games = [{
+                id: "1v1lol",
+                name: "1v1.lol"
+            },
+            {
+                id: "2048",
+                name: "2048"
+            },
+            {
+                id: "minecraft-15",
+                name: "Minecraft 1.5"
+            },
+            {
+                id: "minecraft-18",
+                name: "Minecraft 1.8"
+            }
+            // Add more game objects here if needed
+        ];
+
+        // Render the game buttons
+        var gameList = document.querySelector('.game-list');
+        games.forEach(function(game) {
+            var button = document.createElement("button");
+            button.className = "game-button";
+            button.innerHTML = game.name;
+            button.addEventListener("click", function() {
+                var newTab = window.open("about:blank", "_blank");
+                newTab.document.write('<iframe src="https://raw.githack.com/3kh0/3kh0-assets/main/' + game.id + '/index.html" style="width: 100%; height: 100%; border: none;"></iframe>');
+            });
+            gameList.appendChild(button);
+        });
+    </script>
+</body>
+
+</html>
